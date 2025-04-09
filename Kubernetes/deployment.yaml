@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gold-price-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gold-price-frontend
+  template:
+    metadata:
+      labels:
+        app: gold-price-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: guruprasadpraikar/gold-price-tracker:latest
+        ports:
+        - containerPort: 80
